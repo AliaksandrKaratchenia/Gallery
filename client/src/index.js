@@ -9,8 +9,9 @@ import Home from './components/Home';
 import PrivateRoute from './components/PrivateRoute';
 import News from './components/News';
 import NavBar from './components/NavBar';
-//const apiKey ="AIzaSyDKu21tXn5KelkOuPEXbqS3tfPZNmT0jjE";
 import App from './App';
+//const apiKey ="AIzaSyDKu21tXn5KelkOuPEXbqS3tfPZNmT0jjE";
+
 
 // render(
 // 	<Provider store={store}>
