@@ -13,20 +13,20 @@ import App from './App';
 //const apiKey ="AIzaSyDKu21tXn5KelkOuPEXbqS3tfPZNmT0jjE";
 
 
-// render(
-// 	<Provider store={store}>
-// 		<ConnectedRouter history={history}>
-// 			<React.Fragment>
-// 				<NavBar />
-// 				<Switch>
-// 					<Route path="/login" component={Login} />
-// 					<PrivateRoute exact path="/news" component={News} />
-// 					<PrivateRoute exact path="/" component={Home} />
-// 				</Switch>
-// 			</React.Fragment>
-// 		</ConnectedRouter>
-// 	</Provider>,
-// 	document.getElementById('root')
-// );
+render(
+	<Provider store={store}>
+		<ConnectedRouter history={history}>
+			<React.Fragment>
+				<NavBar />
+				<Switch>
+					<Route path="/login" component={Login} />
+					<PrivateRoute exact path="/news" component={News} />
+					<PrivateRoute exact path="/" component={Home} />
+				</Switch>
+			</React.Fragment>
+		</ConnectedRouter>
+	</Provider>,
+	document.getElementById('root')
+);
 
-render(<App/>,	document.getElementById('root') );
+//render(<App/>,	document.getElementById('root') );

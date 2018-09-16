@@ -10,8 +10,8 @@ class App extends Component {
 
   componentDidMount() {
     const data = JSON.stringify({
-      title:"Title",
-      body:"body"
+      userName:"Title",
+      password:"body"
     });
     fetch("/create", {
       method: "post",

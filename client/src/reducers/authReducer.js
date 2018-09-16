@@ -1,6 +1,7 @@
  const LOG_IN = 'LOG_IN';
  const LOG_OUT = 'LOG_OUT';
  const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
+ const LOG_IN_REQUEST= 'LOG_IN_REQUEST';
 
 const initialState = {
     isAuthenticated: false,
@@ -15,6 +16,11 @@ const initialState = {
   
   const authReducer = (state = initialState, action) => {
     switch (action.type) {
+      case LOG_IN_REQUEST:
+      return {
+        ...state,
+        isAuthenticated: false
+      }
       case LOG_IN:
         return {
           ...state,
