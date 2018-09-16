@@ -76,7 +76,7 @@ class LoginContainer extends React.Component {
     // };
 
   handleSubmit = e => {
-    //e.preventDefault()
+    e.preventDefault()
     this.props.login({
       userName: this.state.userName,
       password: this.state.password
