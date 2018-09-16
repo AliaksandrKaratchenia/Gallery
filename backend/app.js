@@ -1,5 +1,5 @@
 const express = require('express')
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 //const Post = require('./models/post')
 const User = require("./models/user");
 // const utils = require("./DataBaseUtils");
@@ -29,7 +29,7 @@ app.use(bodyParser.json())
 
 app.post('/create', (req, res) => {
   const { userName, password } = req.body
-
+  
   const user = new User({
     userName: userName,
     password: password
