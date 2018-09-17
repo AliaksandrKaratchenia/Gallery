@@ -6,8 +6,7 @@ import Button from '@material-ui/core/Button';
 
 const styles = (theme) => ({
 	button: {
-    margin: theme.spacing.unit,
-    color:"white"
+		marginLeft:-10
 	},
 	input: {
 		display: 'none'

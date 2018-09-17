@@ -10,21 +10,11 @@ import PrivateRoute from './components/PrivateRoute';
 import News from './components/News';
 import NavBar from './components/NavBar';
 import App from './App';
-//const apiKey ="AIzaSyDKu21tXn5KelkOuPEXbqS3tfPZNmT0jjE";
-
+import {Sw } from './components/SW';
 
 render(
 	<Provider store={store}>
-		<ConnectedRouter history={history}>
-			<React.Fragment>
-				<NavBar />
-				<Switch>
-					<Route path="/login" component={Login} />
-					<PrivateRoute exact path="/news" component={News} />
-					<PrivateRoute exact path="/" component={Home} />
-				</Switch>
-			</React.Fragment>
-		</ConnectedRouter>
+				<NavBar/>
 	</Provider>,
 	document.getElementById('root')
 );
