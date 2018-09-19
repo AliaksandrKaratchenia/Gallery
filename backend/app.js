@@ -31,9 +31,10 @@ app.use(bodyParser.json())
 //https://api.unsplash.com/search/photos/?page=1&per_page=10&query=wheather&client_id=eaf9609e0b11e4fda9dc433b61f2ad8913ba9a6694dcba85878266b59b243d49
   
 
-app.get("/getPhotos", async (req,res)=>{
+app.post("/getPhotos", async (req,res)=>{
+  const { pageNumber, query}=req.body;
   //let responseArr= await fetch(`https://api.unsplash.com/search/photos/?&page=1&per_page=4&query=ocean&client_id=${key}`);
-  let responseArr= await fetch(`https://api.unsplash.com/search/photos/?&page=1&per_page=4&query=ocean&client_id=eaf9609e0b11e4fda9dc433b61f2ad8913ba9a6694dcba85878266b59b243d49`);
+  let responseArr= await fetch(`https://api.unsplash.com/search/photos/?&page=${pageNumber}&per_page=10&query=${query}&client_id=${key}`);
   let data = await responseArr.json();
   let validData =  data.results.map(el=>el.urls.small); 
   return res.json({ data:validData})

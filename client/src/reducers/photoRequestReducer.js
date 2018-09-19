@@ -11,12 +11,12 @@ const initialState = {
     switch (action.type) {
       case THE_REQUEST_STARTED:
       return {
-          photos:[...state.photos ,...action.payload],
+          ...state,
           loading:true
       }
       case REQUEST_SUCCESS:
         return {
-            photos:[...action.payload],
+            photos:[...state.photos ,...action.payload],
             loading:false
         }
       default:

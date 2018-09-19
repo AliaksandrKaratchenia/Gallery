@@ -1,4 +1,4 @@
- import  { Component } from 'react';
+ //import  { Component } from 'react';
 
 // import './App.css';
 
@@ -42,51 +42,52 @@
 // }
 
 
-  import React from 'react';
+//   import React from 'react';
  
-import { LazyLoadImage, trackWindowScroll }
-  from 'react-lazy-load-image-component';
-  // const Img= ({ image }) => (
-  //   <div>
-  //     <LazyLoadImage
-  //       height={image.height}
-  //       src={image.src}/>
-  //   </div>
-  // );
+// import { LazyLoadImage, trackWindowScroll }
+//   from 'react-lazy-load-image-component';
+//   // const Img= ({ image }) => (
+//   //   <div>
+//   //     <LazyLoadImage
+//   //       height={image.height}
+//   //       src={image.src}/>
+//   //   </div>
+//   // );
 
-  // const preImg ='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164edaf95ee%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164edaf95ee%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.32500076293945%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E';
-  // const image ={
-  //   src:preImg,
-  //   height:"600px",
-  //   width:"100%"
-  // }
-  // let preArr = Array(12).fill(image);
+//   // const preImg ='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164edaf95ee%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164edaf95ee%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.32500076293945%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E';
+//   // const image ={
+//   //   src:preImg,
+//   //   height:"600px",
+//   //   width:"100%"
+//   // }
+//   // let preArr = Array(12).fill(image);
 
 
 
-const Gallery = ({ images, scrollPosition }) => {
-console.log(scrollPosition);
-return(
-  <div>
-    {images.map((image,ind) =>
-      <LazyLoadImage
-        key={ind}
-        height={image.height}
-        // Make sure to pass down the scrollPosition, this
-        // will be used by the component to know it must
-        // not subscribe to the scroll/resize events
-        scrollPosition={scrollPosition}
-        src={image.src}
-        width={image.width} />
-    )}
-  </div>
-);
-}
+// const Gallery = ({ images, scrollPosition }) => {
+// console.log(scrollPosition);
+// return(
+//   <div>
+//     {images.map((image,ind) =>
+//       <LazyLoadImage
+//         key={ind}
+//         height={image.height}
+//         // Make sure to pass down the scrollPosition, this
+//         // will be used by the component to know it must
+//         // not subscribe to the scroll/resize events
+//         scrollPosition={scrollPosition}
+//         src={image.src}
+//         width={image.width} />
+//     )}
+//   </div>
+// );
+// }
 
-// Wrap Gallery with trackWindowScroll HOC so it receives
-// a scrollPosition prop to pass down to the images
-export default trackWindowScroll(Gallery);
+// // Wrap Gallery with trackWindowScroll HOC so it receives
+// // a scrollPosition prop to pass down to the images
+// export default trackWindowScroll(Gallery);
 // //hi
+
 //   class App extends Component {
 //     render() {
 //           return (
@@ -252,3 +253,67 @@ export default trackWindowScroll(Gallery);
 // };
 
 // export default withStyles(styles, { withTheme: true })(MiniDrawer);
+import React from "react";
+import { render } from "react-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
+
+const style = {
+  height: 30,
+  border: "1px solid green",
+  margin: 6,
+  padding: 8
+};
+
+class App extends React.Component {
+
+  constructor(){
+    super();
+    const preImg ='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164edaf95ee%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164edaf95ee%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.32500076293945%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E';
+  //   const image ={
+  //   src:preImg,
+  //   height:"600px",
+  //   width:"100%"
+  // }
+    let preArr = Array(20).fill(preImg);
+    this.state = {
+    items: preArr
+  };
+  }
+  
+
+    
+
+  fetchMoreData = () => {
+    // a fake async api call like which sends
+    // 20 more records in 1.5 secs
+    fetch("/getPhotos")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.data,"INFetch")
+      this.setState({
+        items:[...this.state.items,...data.data]
+      })
+    })
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>demo: react-infinite-scroll-component</h1>
+        <hr />
+        <InfiniteScroll
+          dataLength={this.state.items.length}
+          next={this.fetchMoreData}
+          hasMore={true}
+          loader={<h4>Loading...</h4>}
+        >
+          {this.state.items.map((i, index) => (  
+              <img src={i} key={index} alt="add"/>
+          ))}
+        </InfiniteScroll>
+      </div>
+    );
+  }
+}
+
+export default App;
