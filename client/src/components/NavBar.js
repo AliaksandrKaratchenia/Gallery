@@ -1,17 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import LinkBtn from './LinkBtn';
+///import LinkBtn from './LinkBtn';
 import { connect } from 'react-redux';
 import { logOut } from '../actions/userActions';
 import { push } from 'react-router-redux';
-import ExitToApp from '@material-ui/icons/ExitToApp';
+//import ExitToApp from '@material-ui/icons/ExitToApp';
 
 
 import classNames from 'classnames';
@@ -20,7 +20,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { mailFolderListItems, otherMailFolderListItems } from './tileData';
+import MailFolderListItems from './tileData';
 import {Sw} from './SW';
 
 import { ConnectedRouter } from 'react-router-redux';
@@ -87,7 +87,8 @@ const styles = (theme) => ({
 	content: {
 		flexGrow: 1,
 		backgroundColor: theme.palette.background.default,
-		padding: theme.spacing.unit * 3
+		padding: theme.spacing.unit * 3,
+		height: "100%",
 	}
 })
 
@@ -140,14 +141,14 @@ class ButtonAppBar extends React.Component {
 				</IconButton>
 			</div>
 			<Divider />
-			<List>{mailFolderListItems}</List>
+			<List><MailFolderListItems data={isAuthenticated} logout={logout} /></List>
 			<Divider />
-			<List>{otherMailFolderListItems}</List>
 		</Drawer>
 		<main className={classes.content}>
 			<div className={classes.toolbar} />
 			{Sw}
 		</main>
+		
 	</div>
 </ConnectedRouter>);
 }
@@ -169,13 +170,13 @@ class ButtonAppBar extends React.Component {
 // 						<LinkBtn to="/" label={'Home'} />
 // 						<LinkBtn to="/news" label={'News'} />
 // 					</Typography>
-// 					{!isAuthenticated ? (
-// 						<LinkBtn to="/login" label={'Login'} />
-// 					) : (
-// 						<Button className={classes.button} onClick={logout}>
-// 							logOut<ExitToApp />
-// 						</Button>
-// 					)}
+					// {!isAuthenticated ? (
+					// 	<LinkBtn to="/login" label={'Login'} />
+					// ) : (
+					// 	<Button className={classes.button} onClick={logout}>
+					// 		logOut<ExitToApp />
+					// 	</Button>
+					// )}
 // 				</Toolbar>
 // 			</AppBar>
 // 		</div>

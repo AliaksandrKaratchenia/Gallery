@@ -51,7 +51,7 @@ const styles = theme => ({
 class LoginContainer extends React.Component {
   constructor (props) {
     super(props)
-    console.log(props, 'IN loggin')
+    //console.log(props, 'IN loggin')
     this.state = {
       userName: '',
       password: '',

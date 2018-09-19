@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 
 class PrivateRouteContainer extends React.Component {
 	render() {
-		console.log(this.props, 'IN Private contanier');
+		//console.log(this.props, 'IN Private contanier');
 		const { isAuthenticated, component: Component, ...props } = this.props;
 
 		return (
