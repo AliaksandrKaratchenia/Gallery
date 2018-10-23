@@ -12,6 +12,7 @@ import LockIcon from '@material-ui/icons/LockOutlined'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
+import { Redirect } from 'react-router-dom';
 
 const styles = theme => ({
   layout: {
@@ -83,15 +84,22 @@ class LoginContainer extends React.Component {
     })
   }
 
-  componentWillReceiveProps (newProps) {
-    this.setState({
-      isAuthenticated: newProps.authReducer.isAuthenticated
-    })
-  }
+  // componentWillReceiveProps (newProps) {
+  //   this.setState({
+  //     isAuthenticated: newProps.authReducer.isAuthenticated
+  //   })
+  // }
+  // componentDidMount(){
+  //   console.log(this.props.authReducer);
+  // }
 
   render () {
     const { errMs } = this.state
     const { classes } = this.props
+    
+     if(this.props.authReducer.isAuthenticated)
+     return <Redirect to='/'/>;
+
     return this.state.isAuthenticated
             ? <p>You have already logIn</p>
             : <div>
@@ -144,8 +152,8 @@ const Login = connect(
     state => state,
     dispatch => ({
       login: params => {
-        dispatch(logIn(params))
-        dispatch(push('/'))
+        dispatch(logIn(params));
+        dispatch(push('/news'));
       }
     })
 )(withStyles(styles)(LoginContainer))
